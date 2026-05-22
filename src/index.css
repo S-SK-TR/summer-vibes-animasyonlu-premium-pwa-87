@@ -10,11 +10,17 @@
     --primary-foreground: 210 40% 98%;
     --glass-bg: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.08);
+    --solstice-500: 221.2 83.2% 53.3%;
+    --solstice-600: 221.2 83.2% 43.3%;
+    --solstice-700: 221.2 83.2% 33.3%;
+    --ocean-500: 195.2 83.2% 53.3%;
   }
 
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
+    --glass-bg: rgba(0, 0, 0, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.05);
   }
 }
 
@@ -39,6 +45,20 @@
   border: 1px solid var(--glass-border);
   border-radius: 20px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.backdrop-blur-glass {
+  backdrop-filter: blur(16px) saturate(180%);
+}
+
+.rounded-glass {
+  border-radius: 24px;
 }
 
 .fluid-blob {
@@ -58,4 +78,66 @@
   src: url('/fonts/PlusJakartaSans-Regular.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
+}
+
+/* Premium UI Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease both;
+}
+
+.fade-up {
+  animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Gradient Background */
+.bg-solstice-gradient {
+  background: linear-gradient(135deg, #07090E 0%, #1A1A2E 50%, #16213E 100%);
+}
+
+/* Premium Shadows */
+.shadow-glass {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-glass-lg {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Transition Utilities */
+.transition-glass {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.transition-glass-fast {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
